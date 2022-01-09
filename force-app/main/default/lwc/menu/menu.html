@@ -1,0 +1,81 @@
+<template>
+    <lightning-card>
+            <lightning-layout>
+                <!--  create a list of items on the menu -->
+                <lightning-layout-item>
+                    <lightning-vertical-navigation selected-item={selectedItem} onselect={handleNavigation} class="navigation">
+                        <lightning-vertical-navigation-section label="Products">
+							<lightning-vertical-navigation-item label="Lithium-Ion Batteries" 
+                            name="Lithium-Ion Batteries">
+							</lightning-vertical-navigation-item>
+                            <lightning-vertical-navigation-item label="Nickel-Metal Hydride Batteries" 
+                            name="Nickel-Metal Batteries">
+							</lightning-vertical-navigation-item>
+                            <lightning-vertical-navigation-item label="Lead-Acid Batteries" 
+                            name="Lead-Acid Batteries">
+							</lightning-vertical-navigation-item>
+                            <lightning-vertical-navigation-item label="Ultracapacitors" 
+                            name="Ultracapacitors">
+                            </lightning-vertical-navigation-item>
+                        </lightning-vertical-navigation-section>
+                    </lightning-vertical-navigation>		
+                </lightning-layout-item>
+
+            <lightning-layout-item padding="around-medium">
+                <!-- header to let users know what they're viewing-->
+                <h2 class="slds-section-title--divider" style="background:#eee; margin-bottom:10px;">
+					<strong>You Are Viewing: <span style="color:#0000ff;">{currentContent}</span></strong>
+				</h2>
+                <!-- create content for each tab -->
+                <template if:true={lithiumProducts}>   
+                    <div class="slds-grid slds-gutters ">   
+                        <template for:each={liProducts.data} for:item='li'>
+                            <lightning-card class="slds-var-p-around_xx-large" key={li.Name}>    
+                                <p><b> {li.Name} </b></p>
+                                <p>Product Code : {li.ProductCode}</p>
+                                <p>Price : {li.UnitPrice}</p>
+                                <img src = {li.DisplayUrl} height="200" width="200"/>
+                            </lightning-card>
+                        </template>
+                    </div>
+                </template>    
+        
+                <template if:true={nickelProducts}>
+                    <div class="slds-grid slds-gutters">            
+                        <template for:each={niProducts.data} for:item='ni'>
+                            <lightning-card class="slds-var-p-around_xx-large" key={ni.Name}>
+                                <p><b>{ni.Name}</b></p>
+                                <p>Product Code : {ni.ProductCode}</p>
+                                <img src = {ni.DisplayUrl} height="200" width="200"/>    
+                            </lightning-card>
+                        </template>
+                    </div>
+                </template>
+
+                <template if:true={leadProducts}>
+                    <div class="slds-grid slds-gutters">            
+                        <template for:each={pbProducts.data} for:item='pb'>
+                            <lightning-card class="slds-var-p-around_xx-large" key={pb.Name}>
+                                <p><b>{pb.Name}</b></p>
+                                <p>Product Code : {pb.ProductCode}</p>
+                                <img src = {pb.DisplayUrl} height="200" width="200"/>
+                            </lightning-card>
+                        </template>
+                    </div>
+                </template>
+
+                <template if:true={ultraProducts}>
+                    <div class="slds-grid slds-gutters">            
+                        <template for:each={uProducts.data} for:item='prod'>
+                            <lightning-card class="slds-var-p-around_xx-large" key={prod.Name}>
+                                <p><b>{prod.Name}</b></p>
+                                <p>Product Code : {prod.ProductCode}</p>
+                                <img src = {prob.DisplayUrl} height="200" width="200"/>
+                            </lightning-card>
+                        </template>
+                    </div>
+                </template>   
+          </lightning-layout-item>
+        </lightning-layout>				
+    </lightning-card>
+</template>
