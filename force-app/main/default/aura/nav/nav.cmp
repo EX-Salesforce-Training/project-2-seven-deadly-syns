@@ -1,63 +1,8 @@
-<aura:component implements="forceCommunity:layout" access="global">
-    <aura:attribute name="navBar" type="String"/>   
-    
-        <c:menu></c:menu>
-    
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="navBar" type="String"/>  
+    <c:menu> </c:menu>  
 </aura:component>
 
 
 
 
-<!-- <aura:component extends="forceCommunity:navigationMenuBase" access="global">
-    <aura:attribute name="navBar" type="Aura.Component[]"/>    
-    <div>
-        <lightning:verticalNavigation selectedItem="Lithium-Ion Batteries">
-            <lightning:verticalNavigationSection label="Products">
-                <lightning:verticalNavigationItem label="Lithium-Ion Batteries" 
-                name="Lithium-Ion Batteries" />
-                <lightning:verticalNavigationItem label="Nickel-Metal Hydride Batteries" 
-                name="Nickel-Metal Batteries" />
-                <lightning:verticalNavigationItem label="Lead-Acid Batteries" 
-                name="Lead-Acid Batteries" />
-                <lightning:verticalNavigationItem label="Ultracapacitors" 
-                name="Ultracapacitors" />
-            </lightning:verticalNavigationSection>
-        </lightning:verticalNavigation>
-    </div>
-    <div><c:menu></c:menu></div>
-</aura:component>
-
-
-
-
-
-
-
- <aura:component>
-    <lightning-layout>
-         create a list of items on the menu
-        <lightning-layout-item>
-            <lightning-vertical-navigation selected-item={selectedItem} onselect={handleNavigation} class="navigation">
-                <lightning-vertical-navigation-section label="Products">
-                    <lightning-vertical-navigation-item label="Lithium-Ion Batteries" 
-                    name="Lithium-Ion Batteries">
-                    </lightning-vertical-navigation-item>
-                    <lightning-vertical-navigation-item label="Nickel-Metal Hydride Batteries" 
-                    name="Nickel-Metal Batteries">
-                    </lightning-vertical-navigation-item>
-                    <lightning-vertical-navigation-item label="Lead-Acid Batteries" 
-                    name="Lead-Acid Batteries">
-                    </lightning-vertical-navigation-item>
-                    <lightning-vertical-navigation-item label="Ultracapacitors" 
-                    name="Ultracapacitors">
-                    </lightning-vertical-navigation-item>
-                </lightning-vertical-navigation-section>
-            </lightning-vertical-navigation>		
-        </lightning-layout-item>
-
-        <lightning-layout-item padding="around-medium">
-            <c:menu></c:menu>
-        </lightning-layout-item>
-   
-    </lightning-layout>
-</aura:component>	-->

@@ -3,7 +3,7 @@
             <lightning-layout>
                 <!--  create a list of items on the menu -->
                 <lightning-layout-item>
-                    <lightning-vertical-navigation selected-item={selectedItem} onselect={handleNavigation} class="navigation">
+                    <lightning-vertical-navigation selected-item={selectedItem} onselect={handleNavigation}>
                         <lightning-vertical-navigation-section label="Products">
 							<lightning-vertical-navigation-item label="Lithium-Ion Batteries" 
                             name="Lithium-Ion Batteries">
@@ -33,7 +33,7 @@
                             <lightning-card class="slds-var-p-around_xx-large" key={li.Name}>    
                                 <p><b> {li.Name} </b></p>
                                 <p>Product Code : {li.ProductCode}</p>
-                                <p>Price : {li.UnitPrice}</p>
+                                
                                 <img src = {li.DisplayUrl} height="200" width="200"/>
                             </lightning-card>
                         </template>
@@ -70,7 +70,7 @@
                             <lightning-card class="slds-var-p-around_xx-large" key={prod.Name}>
                                 <p><b>{prod.Name}</b></p>
                                 <p>Product Code : {prod.ProductCode}</p>
-                                <img src = {prob.DisplayUrl} height="200" width="200"/>
+                                <img src = {prod.DisplayUrl} height="200" width="200"/>
                             </lightning-card>
                         </template>
                     </div>

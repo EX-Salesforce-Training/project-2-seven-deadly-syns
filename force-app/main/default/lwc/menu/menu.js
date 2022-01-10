@@ -1,4 +1,3 @@
-
 import { LightningElement, wire, track } from 'lwc';
 
 import getLiProducts from '@salesforce/apex/apexController.getLiProducts';
@@ -43,20 +42,12 @@ export default class Menu extends LightningElement {
             this.leadProducts = false;
         }
 
-        try{
             if(selected == 'Ultracapacitors'){
             this.ultraProducts = true;
         } else { 
             this.ultraProducts = false;
         } 
-    } catch (e) {
-        console.log(e);
-        
-    }
         
     }
 
 }
-
-
-

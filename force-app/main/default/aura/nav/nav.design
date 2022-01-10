@@ -1,4 +1,3 @@
 <design:component label='nav' >
      <design:attribute name="navBar" label="Nav bar" />
-
 </design:component>

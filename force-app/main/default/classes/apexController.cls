@@ -1,10 +1,11 @@
 public with sharing class apexController {
+
+    // return a list of names, product codes and image url for each product type
+    
     @AuraEnabled (cacheable = true)
     public static List<Product2> getLiProducts(){
         return [SELECT name, ProductCode, DisplayURL
         FROM Product2 WHERE Family = 'Lithium-ion Batteries'];
-      /*  return [SELECT Product2.name, Product2.ProductCode, Product2.DisplayURL, UnitPrice
-        FROM PricebookEntry WHERE Product2.Family = 'Lithium-ion Batteries'];, (SELECT UnitPrice FROM PricebookEntries)*/
     }
 
     @AuraEnabled (cacheable = true)
@@ -24,17 +25,3 @@ public with sharing class apexController {
 
 }
 
-/*  public static List<Product2> getProducts() {
-        if (Family = 'Lithium-ion Batteries'){
-            return [SELECT name, ProductCode FROM Product2];
-        }
-        if (Family = 'Nickel-Metal Hydride Batteries'){
-            return [SELECT name, ProductCode FROM Product2];
-        } 
-        if (Family = 'Lead-Acid Batteries'){
-            return [SELECT name, ProductCode FROM Product2];
-        }
-        if (Family = 'Ultracapacitors'){
-            return [SELECT name, ProductCode FROM Product2];
-        }
-    }*/
