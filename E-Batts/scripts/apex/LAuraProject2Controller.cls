@@ -2,7 +2,7 @@ public with sharing class LAuraProject2Controller {
     @Auraenabled
     public static List<Account> getAccount(Id userId){
              
-        List <User> CommUser= [SELECT AccountId FROM User WHERE Id=:userId];
+        List <User> CommUser= [SELECT Id, AccountId, Profile.Name FROM User WHERE Id=:userId];
         system.debug(CommUser);
         List <Account> acctlist= [SELECT Name, Id FROM Account];
         List<Account> accountDetail= new List <Account>();
@@ -16,18 +16,18 @@ public with sharing class LAuraProject2Controller {
                     accountDetail.add(a);
                     System.debug(a.Id);
                     System.debug(a.Name);
-                    
-                } else {for (Account ac:acc){system.debug(ac.Name); system.debug(ac.Id);return acc;}}
+                    //else statement for demo purposes only//
+                } else if (u.Profile.Name=='System Administrator'){for (Account ac:acc){system.debug(ac.Name); system.debug(ac.Id);return acc;}}
+                }
                 
-                
-                
-            }
+                             
+            
             
         }for (Account r:accountDetail){system.debug(r.Name); system.debug(r.Id);}return accountDetail;
     
     }
-    
-    
+       
+            
      @Auraenabled
      public static void createRecord(String qty,String aname,Id prodid,Date dated,String prodname,Id acId){
      Integer Q = integer.ValueOf(qty);

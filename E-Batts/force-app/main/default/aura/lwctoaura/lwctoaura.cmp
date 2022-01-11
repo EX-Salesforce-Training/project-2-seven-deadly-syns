@@ -1,25 +1,5 @@
 <aura:component controller="LAuraProject2Controller"  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
-	<!--<aura:attribute name="rfq" type="RFQ__c" default="('sobjectType':'RFQ__c',
-                                                       'Name':'',
-                                                       'AccountId__c':'',
-                                                       'Deadline__c':'',
-                                                      'AccountName__c':''
-                                                      )" />
-    <aura:attribute name="rfqLine" type="RFQLine__c" default="('sobjectType':'RFQLine__c',
-                                                          'Name':'',
-                                                          'RFQ__c':'',
-                                                          'Qty__c':0,
-                                                          'Product__c':'',
-                                                          'ProductName__c':'')" />
-    <aura:attribute name="rfqLines" type="RFQLine__c[]" />
-    <aura:attribute name="rfqDisplayItems" type="string[][]" default="('qtyVar1':'',
-                                                                'dateVar1':'',                                                                                                                             'prodVar1':'',
-                                                               'pnameVar1':'',
-                                                               'acctnameVar1:'')" />
-    <aura:attribute name="rfqDisplayItem"  type="string[]" default="('qtyVar1':'',
-                                                                'dateVar1':'',                                                                                                                              'prodVar1':'',
-                                                               'pnameVar1':'',
-                                                               'acctnameVar1:'')" /> -->
+	
     <aura:attribute name="userVar1" type="string" default=''/>
     <aura:attribute name="acctVar1" type="string" default=''/>
     <aura:attribute name="qtyVar1" type="string" default='' />
@@ -27,6 +7,7 @@
     <aura:attribute name="prodVar1" type="string" default=''/>
     <aura:attribute name="pnameVar1" type="string" default=''/>
     <aura:attribute name="acctnameVar1" type="string" default=''/>
+    
     <div class="slds-box slds-theme_default slds-theme_backgroundColor-lightblue">
    <lightning:layout>
         <lightning:layoutItem>
@@ -36,14 +17,9 @@
          <lightning:layoutItem padding="horizontal-small">
              <div class="page-section page-header">
         <h1 class="slds-text-heading_label">Request a Quote for our Product </h1>
-                 <!-- <span>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Nissan_Leaf_012.JPG/310px-Nissan_Leaf_012.JPG" width="300" height ="300"/>
-                 </span>
-                 <span>
-                     <img src="https://www.edfenergy.com/sites/default/files/styles/webp__spire_tile__media__one_half__media_square/public/ev-electric-car-lithium-ion-battery.jpg?itok=Q8KaNaPZ" width="300" height="200"/>
-                 </span>-->
-                 </div>
-        </lightning:layoutItem>
+                 
+    </div>
+    </lightning:layoutItem>
     </lightning:layout>
     
     
@@ -67,16 +43,22 @@
         <aura:set attribute="actions">
             <lightning:button type="submit" variant="brand" class="slds-m-top_small" label="Submit" onclick="{!c.handleClick}"/>
         </aura:set>
-        
+          <aura:if isTrue="{!v.pnameVar1}">
+               
         <p class="slds-p-horizontal_medium">
             Product Name:<ui:outputText value="{!v.pnameVar1}"/>
         </p>
+        </aura:if>
+        <aura:if isTrue="{!v.qtyVar1}">
         <p class="slds-p-horizontal_medium">
             Quantity:<ui:outputText value="{!v.qtyVar1}" />
         </p>
+        </aura:if>
+        <aura:if isTrue="{!v.dateVar1}">
         <p class="slds-p-horizontal_medium">
             Quote Delivery Deadline:<ui:outputText value="{!v.dateVar1}" />
         </p>
+          </aura:if>  
     </lightning:card>
     </div>
 </aura:component>
