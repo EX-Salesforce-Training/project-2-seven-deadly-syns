@@ -1,0 +1,48 @@
+<aura:component controller="RetrieveOppPicklist" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+
+    <aura:attribute name="opportunityList" type="list" default=""/>
+
+	<aura:attribute name="stageList" type="list" default=""/>
+	
+    <!--
+    <aura:iteration items="{!v.stageList}" var="te">
+        <p>{!te}</p>
+    </aura:iteration>
+    <br/>
+    -->
+    
+    <c:requestAccountName onoppevent="{!c.oppSearchEvent}"/>
+
+	<lightning:accordion activeSectionName="allOpportunities Present">
+        
+		<aura:iteration items="{!v.opportunityList}" var="opp">
+            <lightning:accordionSection name="{!opp.Id}" label="{!opp.Name}">
+                
+                <p>the opportunity "{!opp.Name}" is currently logged at the stage of "{!opp.StageName}"</p>
+                <lightning:layout>
+        			<lightning:layoutItem flexibility="auto" padding="around-small">
+                    	<div class="custom-box">
+                            
+                            <lightning:select aura:id="select" name="{!opp.Id}" value="" label="Stage selection">
+                                <option>Change Stage to...</option>
+                                <aura:iteration items="{!v.stageList}" var="item">
+                                    <option value="{!item.value}">
+                                        {!item}
+                                    </option>
+                               </aura:iteration>
+                            </lightning:select>
+                            
+                            <lightning:button value="{!opp.Id}" variant="Neutral" label="Submit Stage Change" title="Change Stage" onclick="{!c.editStageOpp}"/>
+                    	</div>
+       				</lightning:layoutItem> 
+       			</lightning:layout>
+                
+			</lightning:accordionSection>
+	    </aura:iteration>
+        
+   	</lightning:accordion>
+    
+</aura:component>

@@ -2,10 +2,17 @@
     "packageDirectories": [
         {
             "path": "force-app",
-            "default": true,
+            "default": false,
             "package": "core",
             "versionName": "ver 0.1",
             "versionNumber": "0.1.0.NEXT"
+        },
+        {
+            "path": "chrisPackage",
+            "package": "chris-aura-and-tests",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT",
+            "default": true
         }
     ],
     "name": "E-Batts",
@@ -13,6 +20,8 @@
     "sfdcLoginUrl": "https://login.salesforce.com",
     "sourceApiVersion": "52.0",
     "packageAliases": {
-        "core": "0Ho5f0000008OgVCAU"
+        "core": "0Ho5f0000008OgVCAU",
+        "chris-aura-and-tests": "0Ho5f0000008Oh9CAE",
+        "chris-aura-and-tests@0.1.0-1": "04t5f000000vJfbAAE"
     }
 }
